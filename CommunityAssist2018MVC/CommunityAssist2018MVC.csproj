@@ -270,10 +270,11 @@
     <Content Include="Views\BusinessRules\Details.cshtml" />
     <Content Include="Views\BusinessRules\Edit.cshtml" />
     <Content Include="Views\BusinessRules\Index.cshtml" />
+    <Content Include="Views\Registration\Index.cshtml" />
+    <Content Include="Views\Registration\Result.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Registration\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

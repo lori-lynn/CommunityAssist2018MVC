@@ -15,21 +15,21 @@ namespace CommunityAssist2018MVC.Controllers
         {
             return View();
         }
-        public ActionResult Register()
-        {
-            return View();
-        }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register([Bind(Include = "PersonUsername, PersonLastName, PersonFirstName, PersonEmail, PersonPrimaryPhone, PersonAddressApt, PersonAddressStreet, PersonAddressCity, PersonAddressState, PersonAddressPostal, PersonPlainPassword")]NewPerson np)
+        public ActionResult Index([Bind(Include = "PersonLastName, PersonFirstName, PersonEmail, PersonPrimaryPhone, PersonAddressApt, PersonAddressStreet, PersonAddressCity, PersonAddressState, PersonAddressPostal, PersonPlainPassword")]NewPerson np)
         {
-            int result = db.usp_Register(np.PersonUserName, np.PersonLastName, np.PersonFirstName, np.PersonEmail, np.PersonPrimaryPhone, np.PersonAddressApt, np.PersonAddressStreet, np.PersonAddressCity, np.PersonAddressState, np.PersonAddressPostal, np.PersonPlainPassword);
+            int result = db.usp_Register(np.PersonLastName, np.PersonFirstName, np.PersonEmail, np.PersonPrimaryPhone, np.PersonAddressApt, np.PersonAddressStreet, np.PersonAddressCity, np.PersonAddressState, np.PersonAddressPostal, np.PersonPlainPassword);
 
+            var resultMessage = new Message();
             if (result != -1)
             {
-                return RedirectToAction("Message");
+                resultMessage.MessageText = "Thanks for registering.";
+
+            } else {
+                resultMessage.MessageText = "Sorry, but something seems to have gone wrong with the registration.";
             }
-            return View();
+            return View("Result",resultMessage);
         }
 
     }

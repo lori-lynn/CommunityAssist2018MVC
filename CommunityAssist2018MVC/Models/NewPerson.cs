@@ -7,7 +7,7 @@ namespace CommunityAssist2018MVC.Models
 {
     public class NewPerson
     {
-        public string PersonUserName
+        public string PersonUserName;
         public string PersonLastName { get; set; }
         public string PersonFirstName { get; set; }
         public string PersonEmail { get; set; }

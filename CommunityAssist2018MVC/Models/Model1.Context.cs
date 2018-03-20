@@ -52,9 +52,14 @@ namespace CommunityAssist2018MVC.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_Login", emailParameter, passwordParameter);
         }
-    
+
+
+        //        int result = db.usp_Register(np.PersonUserName, np.PersonLastName, np.PersonFirstName, np.PersonEmail, np.PersonPrimaryPhone, np.PersonAddressApt, np.PersonAddressStreet, np.PersonAddressCity, np.PersonAddressState, np.PersonAddressPostal, np.PersonPlainPassword);
+
+
         public virtual int usp_Register(string lastname, string firstname, string email, string password, string apartmentNumber, string street, string city, string state, string zipcode, string phone)
         {
+
             var lastnameParameter = lastname != null ?
                 new ObjectParameter("lastname", lastname) :
                 new ObjectParameter("lastname", typeof(string));
