@@ -19,7 +19,7 @@ namespace CommunityAssist2018MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index([Bind(Include = "PersonLastName, PersonFirstName, PersonEmail, PersonPrimaryPhone, PersonAddressApt, PersonAddressStreet, PersonAddressCity, PersonAddressState, PersonAddressPostal, PersonPlainPassword")]NewPerson np)
         {
-            int result = db.usp_Register(np.PersonLastName, np.PersonFirstName, np.PersonEmail, np.PersonPrimaryPhone, np.PersonAddressApt, np.PersonAddressStreet, np.PersonAddressCity, np.PersonAddressState, np.PersonAddressPostal, np.PersonPlainPassword);
+            int result = db.usp_Register(np.PersonLastName, np.PersonFirstName, np.PersonEmail, np.PersonPlainPassword, np.PersonAddressApt, np.PersonAddressStreet, np.PersonAddressCity, np.PersonAddressState, np.PersonAddressPostal, np.PersonPrimaryPhone);
 
             var resultMessage = new Message();
             if (result != -1)

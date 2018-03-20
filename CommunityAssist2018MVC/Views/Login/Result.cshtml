@@ -1,0 +1,17 @@
+﻿@model CommunityAssist2018MVC.Models.LoginClass
+@{
+    ViewBag.Title = "Result";
+}
+
+<h2>Result</h2>
+
+@if(Model.PersonKey != 0)
+{
+    <p>Thank you for loggin in. You may now Donate or apply for assistance.</p>
+}
+
+else
+{
+    <p>Login failed. Please check your credentials, or Register if you have not yet done so.</p>
+}
+
