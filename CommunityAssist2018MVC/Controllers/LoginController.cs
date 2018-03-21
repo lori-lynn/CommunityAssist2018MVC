@@ -29,9 +29,20 @@ namespace CommunityAssist2018MVC.Controllers
                             where p.PersonEmail.Equals(lgc.Email)
                             select p.PersonKey).FirstOrDefault();
                 lgc.PersonKey = ukey;
+                System.Web.HttpContext.Current.Session["ukey"] = ukey;
             }
 
-            return View("Result", lgc);
+            var resultMessage = new Message();
+            if (result != -1)
+            {
+                resultMessage.MessageText = "Thank you for loggin in. You may now Donate or apply for assistance.";
+
+            }
+            else
+            {
+                resultMessage.MessageText = "Login failed. Please check your credentials, or Register if you have not yet done so.";
+            }
+            return View("Result", resultMessage);
         }
     }
 }
